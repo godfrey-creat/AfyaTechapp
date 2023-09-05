@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>AfyaTech</TITLE>
+    </HEAD>
+    <BODY>
+        {% if not doctor_id %}
+            <H1>Doctors</H1>
+	    <UL>
+	        {% for doctor in doctors.values()|sort(attribute='name') %}
+		    <LI>{{ doctor.id }}: <B>{{ doctor.name }}</B></LI>
+		{% endfor %}
+	    </UL>
+	{% elif doctor_id in doctors%}
+	    {% set doctor = doctors[doctor_id] %}
+	        <H1>Doctor: {{ doctor.name }}</H1>
+		<H3>Hospitals</H3>
+		    <UL>
+			{% for hospital in doctor.hospitals|sort(attribute='name') %}
+                            <LI>{{ hospital.id }}: <B>{{ hospital.name }}</B></LI>
+                        {% endfor %}
+		    </UL>
+	{% else %}
+	    <H1>Not found!</H1>
+	{% endif %}
+    </BODY>
+</HTML>

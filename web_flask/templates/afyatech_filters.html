@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/4-common.css">
+    <link rel="stylesheet" href="styles/3-header.css">
+    <link rel="stylesheet" href="styles/3-footer.css">
+    <link rel="stylesheet" href="styles/6-filters.css">
+    <link rel="icon" href="images/icon.png" type="image/png">
+    <title>AfyaTech-</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+      </div>
+    </header>
+    <div class="container">
+      <section class="filters">
+        <div class="locations">
+          <h3>Doctors</h3>
+          <h4>&nbsp;</h4>
+          <ul class="popover">
+	    {% for doctor in doctors|sort(attribute='name') %}
+              <li>
+                <h2>{{ doctor.name }}:</h2>
+                <ul>
+		  {% for hospital in doctor.hospitals|sort(attribute='name') %}
+                    <li>{{ hospital.name }}</li>
+		  {% endfor %}
+                </ul>
+              </li>
+	    {% endfor %}
+          </ul>
+        </div>
+        <div class="patients">
+          <h3>Patients</h3>
+          <h4>&nbsp;</h4>
+          <ul class="popover">
+	    {% for patient in patients|sort(attribute='name') %}
+              <li>{{ patient.name }}</li>
+	    {% endfor %}
+          </ul>
+        </div>
+        <button>
+          Search
+        </button>
+      </section>
+    </div>
+    <footer>
+      <p>
+        Afya Bora Maisha Bora
+      </p>
+    </footer>
+  </body>
+</html>
