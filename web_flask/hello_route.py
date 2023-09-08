@@ -5,12 +5,14 @@ starts a Flask web application
 
 from flask import Flask
 app = Flask(__name__)
+app.url_map.strict_slashes = False
 
 
 @app.route('/', strict_slashes=False)
-def index():
+def hello_afyatechapp():
     """returns Hello AfyaTech!"""
     return 'Hello AfyaTech!'
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='8000')
+    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
