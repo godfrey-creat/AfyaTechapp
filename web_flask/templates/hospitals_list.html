@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>AfyaTech</TITLE>
+    </HEAD>
+    <BODY>
+	    <H1>Hospitals</H1>
+        <UL>
+        {% for hospital in hospitals %}
+            <LI>{{ hospital.id }}: <B>{{ hospital.name }}</B></LI>
+        {% endfor %}
+        </UL>
+    </BODY>
+</HTML>
